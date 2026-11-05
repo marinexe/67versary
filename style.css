@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
@@ -307,3 +308,381 @@ canvas {
   width: 100%;
   height: 100%;
 }
+=======
+/* ========== БОИ ========== */
+:root {
+  --bg: #e6f0ff;
+  --card: #ffffff;
+  --ink: #10264d;
+  --mute: #5a6f94;
+  --pink: #ff4d8d;
+  --purple: #8a4dff;
+  --line: #c9dcfa;
+  --hi: #dbe8ff;
+  color-scheme: light;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1a33;
+    --card: #15274a;
+    --ink: #eaf2ff;
+    --mute: #9db8e6;
+    --pink: #ff6fa5;
+    --purple: #a98bff;
+    --line: #2a4678;
+    --hi: #1f3a6b;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0d1a33;
+  --card: #15274a;
+  --ink: #eaf2ff;
+  --mute: #9db8e6;
+  --pink: #ff6fa5;
+  --purple: #a98bff;
+  --line: #2a4678;
+  --hi: #1f3a6b;
+  color-scheme: dark;
+}
+
+/* ========== ОСНОВА ========== */
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  background: var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Ctext x='6' y='34' font-family='Trebuchet MS,sans-serif' font-weight='800' font-size='20' fill='%2322c55e' fill-opacity='.32' transform='rotate(-12 20 28)'%3E67%3C/text%3E%3Ctext x='54' y='82' font-family='Trebuchet MS,sans-serif' font-weight='800' font-size='16' fill='%2316a34a' fill-opacity='.28' transform='rotate(10 66 76)'%3E67%3C/text%3E%3C/svg%3E");
+}
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px max(16px, env(safe-area-inset-right)) 60px max(16px, env(safe-area-inset-left));
+}
+
+/* ========== НАСЛОВ ========== */
+h1 {
+  margin: 8px 0 4px;
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  line-height: 1.05;
+  text-align: center;
+}
+
+h1 .n {
+  display: inline-block;
+  cursor: pointer;
+  color: transparent;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: bob 1.6s ease-in-out infinite;
+}
+
+.sub {
+  margin: 0 0 18px;
+  text-align: center;
+  color: var(--mute);
+}
+
+/* ========== КАРТИЧКИ ========== */
+.card {
+  margin-bottom: 16px;
+  padding: 16px;
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 6px 0 var(--line);
+}
+
+/* ========== КОПЧИЊА ========== */
+button {
+  padding: 8px 14px;
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  touch-action: manipulation;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* ========== СТАТИСТИКА ========== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stat {
+  padding: 12px 6px;
+  text-align: center;
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 18px;
+}
+
+.stat b {
+  display: block;
+  font-size: clamp(1.4rem, 6vw, 2.2rem);
+  color: var(--pink);
+}
+
+.stat span {
+  font-size: 0.8rem;
+  color: var(--mute);
+}
+
+/* ========== СЛЕДНА 67-ВЕРЗАРИЈА ========== */
+.next {
+  text-align: center;
+  background: linear-gradient(135deg, var(--hi), var(--card));
+}
+
+.next .big {
+  font-size: clamp(3rem, 16vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--pink);
+}
+
+/* ========== КАЛЕНДАР ========== */
+.cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cal-head h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.dow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--mute);
+}
+
+.day {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  padding: 0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--bg);
+  border: 2px solid transparent;
+  border-radius: 12px;
+}
+
+.day.today {
+  border-color: var(--purple);
+}
+
+.day.start {
+  font-weight: 800;
+  background: var(--hi);
+}
+
+.day.sp {
+  font-weight: 800;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  animation: pulse 2s infinite;
+}
+
+.day.sp small {
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.day .note {
+  font-size: 0.55rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.detail {
+  min-height: 3.2em;
+  margin-top: 12px;
+  text-align: center;
+  color: var(--mute);
+}
+
+.detail b {
+  font-size: 1.1rem;
+  color: var(--pink);
+}
+
+/* ========== ЛИСТА НА ИДНИ 67-ВЕРЗАРИИ ========== */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px;
+  cursor: pointer;
+  border-bottom: 2px dashed var(--line);
+}
+
+li:last-child {
+  border: 0;
+}
+
+li .num {
+  min-width: 48px;
+  padding: 4px 10px;
+  font-weight: 800;
+  text-align: center;
+  color: #fff;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+}
+
+li .when {
+  flex: 1;
+}
+
+li .when small {
+  display: block;
+  color: var(--mute);
+}
+
+li .in {
+  font-weight: 800;
+  white-space: nowrap;
+  color: var(--purple);
+}
+
+/* ========== ВРЕМЕ ЗАЕДНО ========== */
+.live {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+.live b {
+  display: block;
+  font-size: clamp(1rem, 4.6vw, 1.9rem);
+  color: var(--purple);
+  word-break: break-all;
+}
+
+.live span {
+  font-size: 0.8rem;
+  color: var(--mute);
+}
+
+.since {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--mute);
+}
+
+.card:has(.live) h2 {
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+/* ========== КОНФЕТИ ========== */
+canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ========== АНИМАЦИИ ========== */
+@keyframes bob {
+  50% { transform: translateY(-6px) rotate(-4deg) scale(1.08); }
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.07); }
+}
+
+/* ========== iPHONE 13 / 14 (до 430px) ========== */
+@media (max-width: 430px) {
+  .wrap { padding: 14px max(10px, env(safe-area-inset-right)) 40px max(10px, env(safe-area-inset-left)); }
+
+  h1 { font-size: 2.1rem; }
+  .sub { margin-bottom: 14px; font-size: 0.9rem; }
+
+  .card { margin-bottom: 12px; padding: 12px; border-radius: 18px; }
+  .card:has(.grid) { padding: 10px 6px; }
+
+  .stats { gap: 6px; }
+  .stat { padding: 10px 4px; border-radius: 14px; }
+  .stat b { font-size: 1.4rem; }
+  .stat span { font-size: 0.7rem; }
+
+  .next .big { font-size: 4.2rem; }
+
+  .cal-head h2 { font-size: 1.1rem; }
+  .cal-head button { min-width: 44px; min-height: 44px; }
+  .grid { gap: 2px; }
+  .dow { font-size: 0.65rem; }
+  .day { aspect-ratio: 4 / 5; justify-content: flex-start; padding: 4px 1px 2px; overflow: hidden; font-size: 0.85rem; border-width: 1.5px; border-radius: 9px; }
+  .day small, .day.sp small { font-size: 0.55rem; }
+  .day .note { margin-top: 2px; max-width: 100%; font-size: 0.62rem; line-height: 1.15; word-break: break-word; }
+
+  li { gap: 8px; padding: 10px 0; font-size: 0.9rem; }
+  li .num { min-width: 42px; padding: 4px 8px; }
+  li .in { font-size: 0.8rem; }
+
+  .live b { font-size: 1.1rem; }
+}
+
+/* ========== iPHONE ПОЛОЖЕН ========== */
+@media (max-height: 500px) and (orientation: landscape) {
+  h1 { font-size: 1.8rem; }
+  .next .big { font-size: 3rem; }
+}
+>>>>>>> eb0bd0a (Update website files)
